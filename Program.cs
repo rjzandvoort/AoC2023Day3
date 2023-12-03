@@ -88,14 +88,9 @@ namespace Day3
                 }
             }
 
-            // Loop through all gears that have 2 nrs
-            var validGears = allGears.Where(g => g.Value.Count == 2);
-            long totalRatio = 0;
-            foreach(var g in validGears)
-            {
-                var ratio = allNrs[g.Value[0]] * allNrs[g.Value[1]];
-                totalRatio += ratio;
-            }
+            // Sum all gears that have 2 nrs
+            long totalRatio = allGears.Where(g => g.Value.Count == 2).Sum(g => allNrs[g.Value[0]] * allNrs[g.Value[1]]);
+           
 
             Console.WriteLine(totalRatio);
             Console.ReadLine();
